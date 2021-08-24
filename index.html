@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<p>8월24일 프로젝트 Test용</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'A')" id="defaultOpen">부서별 증가량</button>
+  <button class="tablinks" onclick="openCity(event, 'B')">5개년 상위 5개 예산총합 누적막대그래프 및 통계</button>
+  <button class="tablinks" onclick="openCity(event, 'C')">교육부 회계별 증감추이</button>
+  <button class="tablinks" onclick="openCity(event, 'D')">보건복지부 회계별 증감추이</button>
+</div>
+
+<div id="A" class="tabcontent">
+  <h3>부서별 증가량</h3>
+  <embed type="text/html" src="a.html" width="650"height="400">
+</div>
+
+<div id="B" class="tabcontent">
+  <h3>5개년 상위 5개 예산총합 누적막대그래프 및 통계</h3>
+  <embed type="text/html" src="b.html" width="1000" height="500">
+</div>
+
+<div id="C" class="tabcontent">
+  <h3>교육부 회계별 증감추이</h3>
+  <embed type="text/html" src="c.html" width="550" height="700">
+</div>
+
+<div id="D" class="tabcontent">
+  <h3>보건복지부 회계별 증감추이</h3>
+  <embed type="text/html" src="d.html" width="550" height="700">
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
